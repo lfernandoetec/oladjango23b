@@ -15,3 +15,12 @@
     - pip freeze > requirements.txt
 - instala as dependencias
     - pip install -r requirements.txt
+- Executar migrações iniciais
+    - cd itapira
+    - python manage.py migrate
+- Criar super usuário
+    - cd itapira
+    - python manage.py createsuperuser
+    - usuario admin
+    - senha 123mudar
+    - email luisfernando.silva@etec.sp.gov.br
