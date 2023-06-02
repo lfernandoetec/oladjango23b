@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import Http404
 from .models import Questao
 
 # Create your views here.
@@ -12,7 +13,11 @@ def loucura(request):
     return HttpResponse("E nessa loucura.......")
 
 def detalhe(request, questao_id):
-    return HttpResponse("Voce esta olhando a questao %s." % questao_id)
+    try:
+        questao = Questao.objects.get(pk=questao_id)
+    except Questao.DoesNotExist:
+        raise Http404("Questao naum ecxisty")
+    return render(request, 'enquete/questao.html', {'questao': questao})
 
 
 def resultados(request, questao_id):
