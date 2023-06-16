@@ -15,6 +15,11 @@
                     <p>tente adivinhar</p>
                 </div>
                 <h2>{{ questao.pergunta }}</h2>
+                <ul>
+                  {% for respostas in questao.resposta_set.all %}
+                      <li>{{ respostas.resposta }} - votos: {{ respostas.votos }}</li>
+                  {% endfor %}
+                </ul>
                 <p>publicado em:{{ questao.data }}</p>
             </div>
         </div>

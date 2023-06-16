@@ -15,4 +15,4 @@ class Resposta(models.Model):
     votos = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.resposta
+        return f"{self.questao.pergunta}? - {self.resposta}"
